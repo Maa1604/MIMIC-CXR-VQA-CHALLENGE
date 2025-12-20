@@ -1,17 +1,27 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem, Logo } from "react-mui-sidebar";
 import CottageOutlinedIcon from "@mui/icons-material/CottageOutlined";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
+
+import {
+  Drawer,
+  IconButton,
+  useMediaQuery,
+  Box,
+} from "@mui/material";
 
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const location = useLocation();
+  const isMobile = useMediaQuery("(max-width:900px)");
+  const [open, setOpen] = useState(false);
 
-  return (
+  const handleClose = () => setOpen(false);
+
+  const SidebarContent = (
     <Sidebar width="270px">
-      {/* Logo */}
       <Logo
         component={Link}
         href="/"
@@ -20,7 +30,6 @@ function Navbar() {
         My App
       </Logo>
 
-      {/* MAIN MENU */}
       <Menu subHeading="MAIN">
         <MenuItem
           icon={<CottageOutlinedIcon />}
@@ -41,6 +50,43 @@ function Navbar() {
         </MenuItem>
       </Menu>
     </Sidebar>
+  );
+
+  return (
+    <>
+      {/* Burger button (mobile only) */}
+      {isMobile && (
+        <IconButton
+          onClick={() => setOpen(true)}
+          sx={{
+            position: "fixed",
+            top: 16,
+            left: 16,
+            zIndex: 1300,
+          }}
+        >
+          <MenuIcon />
+        </IconButton>
+      )}
+
+      {/* Mobile drawer */}
+      {isMobile ? (
+        <Drawer
+          open={open}
+          onClose={handleClose}
+          variant="temporary"
+          ModalProps={{ keepMounted: true }}
+          onClickCapture={handleClose}
+        >
+          {SidebarContent}
+        </Drawer>
+      ) : (
+        /* Desktop sidebar */
+        <Box sx={{ height: "100vh" }}>
+          {SidebarContent}
+        </Box>
+      )}
+    </>
   );
 }
 
