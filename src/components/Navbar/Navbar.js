@@ -21,7 +21,7 @@ function Navbar() {
   const handleClose = () => setOpen(false);
 
   const SidebarContent = (
-    <Sidebar width="270px">
+    <Sidebar width="270px" showProfile={false}>
       <Logo
         component={Link}
         href="/"
