@@ -9,7 +9,8 @@ const ChestText = () => {
       typingSpeed={75}
       pauseDuration={1500}
       showCursor={true}
-      cursorCharacter="|"
+      loop={false}
+      cursorCharacter="_"
     />
   );
 };
