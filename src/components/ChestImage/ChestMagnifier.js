@@ -1,6 +1,7 @@
 import { useState } from "react";
-import chestImg from "../assets/chest.png";
-import lungImg from "../assets/lung12.png";
+import chestImg from "../../assets/chest.png";
+import lungImg from "../../assets/lung12.png";
+import './ChestMagnifier.css';
 
 const IMAGE_SIZE = 400;
 const LENS_SIZE = 140;
@@ -19,6 +20,7 @@ export default function ChestMagnifier() {
 
   return (
     <div
+      className="magnifier-container"
       style={{
         position: "relative",
         width: IMAGE_SIZE,
