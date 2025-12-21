@@ -1,17 +1,31 @@
-.App {
+/* Main layout */
+.app-layout {
   display: flex;
-  justify-content: center;   /* horizontal centering */
-  align-items: center;       /* vertical centering */
+  min-height: 100vh;
+  padding-left: 0;
+  background-color: #f0f0f0;
 }
 
-
+/* Content area */
 .page-content {
   flex: 1;
 }
 
+/* Smooth padding growth AFTER 1400px */
+@media (min-width: 1070px) {
+  .app-layout {
+    padding-left: clamp(
+      0rem,                      /* starts at 0 */
+      calc((100vw - 1070px) * 0.5),
+      30rem                      /* sensible max */
+    );
+  }
+}
+
+
 /* Mobile only */
 @media (max-width: 900px) {
   .page-content {
-    margin-top: 64px; /* same height as .topbar */
+    margin-top: 64px;
   }
 }

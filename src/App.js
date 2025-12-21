@@ -8,7 +8,7 @@ import Page2 from "./pages/Page2";
 function App() {
   return (
     <Router>
-      <div style={{ display: "flex", minHeight: "100vh" }}>
+      <div className="app-layout">
         <Navbar />
 
         <div className="page-content">
@@ -21,6 +21,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
