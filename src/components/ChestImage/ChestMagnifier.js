@@ -13,7 +13,7 @@ export default function ChestMagnifier() {
   const startTimeRef = useRef(null);
 
   const [pos, setPos] = useState(AUTO_START);
-  const [show, setShow] = useState(true);
+  const show = true;
   const [auto, setAuto] = useState(true);
 
   const handleMove = (e) => {
