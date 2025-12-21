@@ -1,10 +1,10 @@
-function Page2() {
+function Leaderboard() {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#fff", padding: 24 }}>
-      <h2>Page 2</h2>
+      <h2>Leaderboard</h2>
       <p>This page is currently empty.</p>
     </div>
   );
 }
 
-export default Page2;
+export default Leaderboard;

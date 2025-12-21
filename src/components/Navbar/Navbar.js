@@ -44,10 +44,82 @@ function Navbar() {
           <MenuItem
             icon={<DescriptionOutlinedIcon />}
             component={Link}
-            link="/page2"
-            isSelected={location.pathname === "/page2"}
+            link="/LatestNews"
+            isSelected={location.pathname === "/LatestNews"}
           >
-            Page 2
+            Latest News
+          </MenuItem>
+
+          <MenuItem
+            icon={<DescriptionOutlinedIcon />}
+            component={Link}
+            link="/Registration"
+            isSelected={location.pathname === "/Registration"}
+          >
+            Registration
+          </MenuItem>
+
+          <MenuItem
+            icon={<DescriptionOutlinedIcon />}
+            component={Link}
+            link="/Participate"
+            isSelected={location.pathname === "/Participate"}
+          >
+            Participate
+          </MenuItem>
+
+          <MenuItem
+            icon={<DescriptionOutlinedIcon />}
+            component={Link}
+            link="/TaskDescription"
+            isSelected={location.pathname === "/TaskDescription"}
+          >
+            Task Description
+          </MenuItem>
+
+          <MenuItem
+            icon={<DescriptionOutlinedIcon />}
+            component={Link}
+            link="/DataSet"
+            isSelected={location.pathname === "/DataSet"}
+          >
+            Data Set
+          </MenuItem>
+
+          <MenuItem
+            icon={<DescriptionOutlinedIcon />}
+            component={Link}
+            link="/Assessment"
+            isSelected={location.pathname === "/Assessment"}
+          >
+            Assessment
+          </MenuItem>
+
+          <MenuItem
+            icon={<DescriptionOutlinedIcon />}
+            component={Link}
+            link="/Submission"
+            isSelected={location.pathname === "/Submission"}
+          >
+            Submission
+          </MenuItem>
+
+          <MenuItem
+            icon={<DescriptionOutlinedIcon />}
+            component={Link}
+            link="/ChallengeRulesPolicies"
+            isSelected={location.pathname === "/ChallengeRulesPolicies"}
+          >
+            Challenge Rules & Policies
+          </MenuItem>
+
+          <MenuItem
+            icon={<DescriptionOutlinedIcon />}
+            component={Link}
+            link="/Leaderboard"
+            isSelected={location.pathname === "/Leaderboard"}
+          >
+            Leaderboard
           </MenuItem>
         </Menu>
       </Sidebar>
