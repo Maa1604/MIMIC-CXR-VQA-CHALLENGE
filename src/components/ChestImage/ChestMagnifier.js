@@ -4,18 +4,53 @@ import lungImg from "../../assets/lung12.png";
 import "./ChestMagnifier.css";
 
 const AUTO_DURATION = 6000; // ms
-const AUTO_END = { x: 60, y: 110 };
-const AUTO_START = { x: 140, y: 90 };
+
+// Relative positions (0–1)
+const AUTO_START_REL = { x: 0.65, y: 0.35 };
+const AUTO_END_REL   = { x: 0.30, y: 0.55 };
 
 export default function ChestMagnifier() {
   const containerRef = useRef(null);
   const animRef = useRef(null);
   const startTimeRef = useRef(null);
 
-  const [pos, setPos] = useState(AUTO_START);
-  const show = true;
   const [auto, setAuto] = useState(true);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
 
+  const [autoStart, setAutoStart] = useState(null);
+  const [autoEnd, setAutoEnd] = useState(null);
+
+  /* -----------------------------
+     Compute positions from size
+  ----------------------------- */
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      const { width, height } = entry.contentRect;
+
+      const start = {
+        x: width * AUTO_START_REL.x,
+        y: height * AUTO_START_REL.y,
+      };
+
+      const end = {
+        x: width * AUTO_END_REL.x,
+        y: height * AUTO_END_REL.y,
+      };
+
+      setAutoStart(start);
+      setAutoEnd(end);
+      setPos(start);
+    });
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  /* -----------------------------
+     Mouse interaction
+  ----------------------------- */
   const handleMove = (e) => {
     if (auto) return;
 
@@ -32,26 +67,31 @@ export default function ChestMagnifier() {
     cancelAnimationFrame(animRef.current);
   };
 
+  /* -----------------------------
+     Exit animation
+  ----------------------------- */
   const animateExitToAutoEnd = (fromPos) => {
-  cancelAnimationFrame(animRef.current);
-  startTimeRef.current = null;
-  setAuto(false);
+    if (!autoEnd) return;
 
-  const EXIT_DURATION = 800; // ms
+    cancelAnimationFrame(animRef.current);
+    startTimeRef.current = null;
+    setAuto(false);
 
-  const animate = (timestamp) => {
+    const EXIT_DURATION = 800;
+
+    const animate = (timestamp) => {
       if (!startTimeRef.current) startTimeRef.current = timestamp;
       const elapsed = timestamp - startTimeRef.current;
       const t = Math.min(elapsed / EXIT_DURATION, 1);
 
-      // Smooth ease-in-out
-      const ease = t < 0.5
-        ? 2 * t * t
-        : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      const ease =
+        t < 0.5
+          ? 2 * t * t
+          : 1 - Math.pow(-2 * t + 2, 2) / 2;
 
       setPos({
-        x: fromPos.x + (AUTO_END.x - fromPos.x) * ease,
-        y: fromPos.y + (AUTO_END.y - fromPos.y) * ease,
+        x: fromPos.x + (autoEnd.x - fromPos.x) * ease,
+        y: fromPos.y + (autoEnd.y - fromPos.y) * ease,
       });
 
       if (t < 1) {
@@ -62,23 +102,25 @@ export default function ChestMagnifier() {
     animRef.current = requestAnimationFrame(animate);
   };
 
-
+  /* -----------------------------
+     Auto zigzag animation
+  ----------------------------- */
   useEffect(() => {
-    if (!auto) return;
+    if (!auto || !autoStart || !autoEnd) return;
 
-    const ZIGZAG_AMPLITUDE = 100; // px up-down
-    const ZIGZAG_CYCLES = 2;    // number of zigzags
+    const ZIGZAG_AMPLITUDE = 100;
+    const ZIGZAG_CYCLES = 2;
+
+    startTimeRef.current = null;
 
     const animate = (timestamp) => {
       if (!startTimeRef.current) startTimeRef.current = timestamp;
       const elapsed = timestamp - startTimeRef.current;
       const t = Math.min(elapsed / AUTO_DURATION, 1);
 
-      // Linear interpolation in X
-      const baseX = AUTO_START.x + (AUTO_END.x - AUTO_START.x) * t;
-      const baseY = AUTO_START.y + (AUTO_END.y - AUTO_START.y) * t;
+      const baseX = autoStart.x + (autoEnd.x - autoStart.x) * t;
+      const baseY = autoStart.y + (autoEnd.y - autoStart.y) * t;
 
-      // Vertical zigzag (damped)
       const zigzag =
         Math.sin(t * Math.PI * 2 * ZIGZAG_CYCLES) *
         ZIGZAG_AMPLITUDE *
@@ -97,11 +139,12 @@ export default function ChestMagnifier() {
     };
 
     animRef.current = requestAnimationFrame(animate);
-
     return () => cancelAnimationFrame(animRef.current);
-  }, [auto]);
+  }, [auto, autoStart, autoEnd]);
 
-
+  /* -----------------------------
+     Lens sizing
+  ----------------------------- */
   const rect = containerRef.current?.getBoundingClientRect();
   const imageSize = rect?.width || 0;
   const lensSize = imageSize * 0.35;
@@ -110,11 +153,7 @@ export default function ChestMagnifier() {
     <div
       ref={containerRef}
       className="magnifier-container"
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "100%",
-      }}
+      style={{ position: "relative", width: "100%", height: "100%" }}
       onMouseEnter={stopAuto}
       onMouseMove={handleMove}
       onMouseLeave={() => animateExitToAutoEnd(pos)}
@@ -133,7 +172,7 @@ export default function ChestMagnifier() {
       />
 
       {/* Lens */}
-      {show && imageSize > 0 && (
+      {imageSize > 0 && (
         <div
           style={{
             position: "absolute",
@@ -149,7 +188,6 @@ export default function ChestMagnifier() {
             boxShadow: "0 0 12px rgba(0,0,0,0.5)",
           }}
         >
-          {/* Lung */}
           <img
             src={lungImg}
             alt="Lung"
