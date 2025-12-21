@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem, Logo } from "react-mui-sidebar";
 import CottageOutlinedIcon from "@mui/icons-material/CottageOutlined";
-import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+// import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
+import HowToRegOutlinedIcon from '@mui/icons-material/HowToRegOutlined';
+import SportsHandballOutlinedIcon from '@mui/icons-material/SportsHandballOutlined';
+import FormatListNumberedOutlinedIcon from '@mui/icons-material/FormatListNumberedOutlined';
+import StorageOutlinedIcon from '@mui/icons-material/StorageOutlined';
+import QueryStatsOutlinedIcon from '@mui/icons-material/QueryStatsOutlined';
+import BackupOutlinedIcon from '@mui/icons-material/BackupOutlined';
+import GavelOutlinedIcon from '@mui/icons-material/GavelOutlined';
+import LeaderboardOutlinedIcon from '@mui/icons-material/LeaderboardOutlined';
 import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../../assets/logo3.png";
 import logoside from "../../assets/logo2.png";
@@ -42,7 +51,7 @@ function Navbar() {
           </MenuItem>
 
           <MenuItem
-            icon={<DescriptionOutlinedIcon />}
+            icon={<NewspaperOutlinedIcon />}
             component={Link}
             link="/LatestNews"
             isSelected={location.pathname === "/LatestNews"}
@@ -51,7 +60,7 @@ function Navbar() {
           </MenuItem>
 
           <MenuItem
-            icon={<DescriptionOutlinedIcon />}
+            icon={<HowToRegOutlinedIcon />}
             component={Link}
             link="/Registration"
             isSelected={location.pathname === "/Registration"}
@@ -60,7 +69,7 @@ function Navbar() {
           </MenuItem>
 
           <MenuItem
-            icon={<DescriptionOutlinedIcon />}
+            icon={<SportsHandballOutlinedIcon />}
             component={Link}
             link="/Participate"
             isSelected={location.pathname === "/Participate"}
@@ -69,7 +78,7 @@ function Navbar() {
           </MenuItem>
 
           <MenuItem
-            icon={<DescriptionOutlinedIcon />}
+            icon={<FormatListNumberedOutlinedIcon />}
             component={Link}
             link="/TaskDescription"
             isSelected={location.pathname === "/TaskDescription"}
@@ -78,7 +87,7 @@ function Navbar() {
           </MenuItem>
 
           <MenuItem
-            icon={<DescriptionOutlinedIcon />}
+            icon={<StorageOutlinedIcon />}
             component={Link}
             link="/DataSet"
             isSelected={location.pathname === "/DataSet"}
@@ -87,7 +96,7 @@ function Navbar() {
           </MenuItem>
 
           <MenuItem
-            icon={<DescriptionOutlinedIcon />}
+            icon={<QueryStatsOutlinedIcon />}
             component={Link}
             link="/Assessment"
             isSelected={location.pathname === "/Assessment"}
@@ -96,7 +105,7 @@ function Navbar() {
           </MenuItem>
 
           <MenuItem
-            icon={<DescriptionOutlinedIcon />}
+            icon={<BackupOutlinedIcon />}
             component={Link}
             link="/Submission"
             isSelected={location.pathname === "/Submission"}
@@ -105,7 +114,7 @@ function Navbar() {
           </MenuItem>
 
           <MenuItem
-            icon={<DescriptionOutlinedIcon />}
+            icon={<GavelOutlinedIcon />}
             component={Link}
             link="/ChallengeRulesPolicies"
             isSelected={location.pathname === "/ChallengeRulesPolicies"}
@@ -114,7 +123,7 @@ function Navbar() {
           </MenuItem>
 
           <MenuItem
-            icon={<DescriptionOutlinedIcon />}
+            icon={<LeaderboardOutlinedIcon />}
             component={Link}
             link="/Leaderboard"
             isSelected={location.pathname === "/Leaderboard"}
