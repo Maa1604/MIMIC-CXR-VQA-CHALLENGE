@@ -1,21 +1,75 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import chestImg from "../../assets/chest.png";
 import lungImg from "../../assets/lung12.png";
 import "./ChestMagnifier.css";
 
+const AUTO_DURATION = 6000; // ms
+const AUTO_END = { x: 60, y: 110 };
+const AUTO_START = { x: 140, y: 90 }; // initial visible position
+
 export default function ChestMagnifier() {
   const containerRef = useRef(null);
+  const animRef = useRef(null);
+  const startTimeRef = useRef(null);
 
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const [show, setShow] = useState(false);
+  const [pos, setPos] = useState(AUTO_START);
+  const [show, setShow] = useState(true);
+  const [auto, setAuto] = useState(true);
 
   const handleMove = (e) => {
+    if (auto) return;
+
     const rect = e.currentTarget.getBoundingClientRect();
     setPos({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     });
   };
+
+  const stopAuto = () => {
+    if (!auto) return;
+    setAuto(false);
+    cancelAnimationFrame(animRef.current);
+  };
+
+  useEffect(() => {
+    if (!auto) return;
+
+    const ZIGZAG_AMPLITUDE = 100; // px up-down
+    const ZIGZAG_CYCLES = 2;    // number of zigzags
+
+    const animate = (timestamp) => {
+      if (!startTimeRef.current) startTimeRef.current = timestamp;
+      const elapsed = timestamp - startTimeRef.current;
+      const t = Math.min(elapsed / AUTO_DURATION, 1);
+
+      // Linear interpolation in X
+      const baseX = AUTO_START.x + (AUTO_END.x - AUTO_START.x) * t;
+      const baseY = AUTO_START.y + (AUTO_END.y - AUTO_START.y) * t;
+
+      // Vertical zigzag (damped)
+      const zigzag =
+        Math.sin(t * Math.PI * 2 * ZIGZAG_CYCLES) *
+        ZIGZAG_AMPLITUDE *
+        (1 - t);
+
+      setPos({
+        x: baseX,
+        y: baseY + zigzag,
+      });
+
+      if (t < 1) {
+        animRef.current = requestAnimationFrame(animate);
+      } else {
+        setAuto(false);
+      }
+    };
+
+    animRef.current = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animRef.current);
+  }, [auto]);
+
 
   const rect = containerRef.current?.getBoundingClientRect();
   const imageSize = rect?.width || 0;
@@ -30,8 +84,7 @@ export default function ChestMagnifier() {
         width: "100%",
         height: "100%",
       }}
-      onMouseEnter={() => setShow(true)}
-      onMouseLeave={() => setShow(false)}
+      onMouseEnter={stopAuto}
       onMouseMove={handleMove}
     >
       {/* Chest */}
@@ -72,7 +125,6 @@ export default function ChestMagnifier() {
               position: "absolute",
               width: imageSize,
               height: imageSize,
-
               left: -(pos.x - lensSize / 2),
               top: -(pos.y - lensSize / 2),
 
