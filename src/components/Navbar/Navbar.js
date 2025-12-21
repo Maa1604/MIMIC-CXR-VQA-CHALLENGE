@@ -30,7 +30,7 @@ function Navbar() {
         My App
       </Logo>
 
-      <Menu subHeading="MAIN">
+      <Menu subHeading="">
         <MenuItem
           icon={<CottageOutlinedIcon />}
           component={Link}
