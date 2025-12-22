@@ -159,7 +159,7 @@ function ChallengeRulesPolicies() {
           Instances of abusive, harassing, or otherwise unacceptable behavior
           may be reported to the community leaders responsible for enforcement
           at{" "}
-          <a href="mailto:qi.li.21@ucl.ac.uk">qi.li.21@ucl.ac.uk</a>. All
+          <a href="mailto:maasala@prhlt.upv.es">maasala@prhlt.upv.es</a>. All
           complaints will be promptly and fairly reviewed and investigated.
         </p>
 
@@ -170,7 +170,7 @@ function ChallengeRulesPolicies() {
 
         <p className="footnote">
           This Code of Conduct has been adapted from the policy available{" "}
-          <a href="google.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/just-the-docs/just-the-docs/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">
             here
           </a>{" "}
           for Just the Docs.
