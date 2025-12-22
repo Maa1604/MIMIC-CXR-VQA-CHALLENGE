@@ -105,3 +105,12 @@
   font-weight: normal;
   font-size: 14px;
 }
+
+/* REMOVE WHEN ALL LINKS ARE COMPLETE */
+
+.disabled-link {
+  pointer-events: none;
+  color: #999;
+  text-decoration: none;
+  cursor: not-allowed;
+}

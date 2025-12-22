@@ -6,17 +6,17 @@ function Participate() {
       <div className="page-content">
         <h2>How to Participate in the CXR-ORACLE 2025 Challenge</h2>
 
-        <h3>1. Register</h3>
+        <h3>1. <a href="/Registration">Register</a></h3>
         <ul>
           <li>
-            Read the <a href="https://forms.gle/REPLACE_WITH_REAL_FORM">Challenge Rules &amp; Policies</a>.
+            Read the <a href="/ChallengeRulesPolicies">Challenge Rules &amp; Policies</a>.
           </li>
           <li>
-            Fill in the <a href="https://forms.gle/REPLACE_WITH_REAL_FORM">registration form</a>.
+            Fill in the registration <a href="https://forms.gle/REPLACE_WITH_REAL_FORM">form</a>.
           </li>
         </ul>
 
-        <h3>2. Download dataset</h3>
+        <h3>2. Download <a href="/Dataset">dataset</a></h3>
         <p>
           We will send the links of data to you once we receive your registration
           information.
@@ -32,7 +32,7 @@ function Participate() {
             Get started with the <a href="https://forms.gle/REPLACE_WITH_REAL_FORM">baseline code</a>.
           </li>
           <li>
-            Get details about <a href="https://forms.gle/REPLACE_WITH_REAL_FORM">assessment</a>.
+            Get details about <a href="/Assessment">assessment</a>.
           </li>
         </ul>
 
