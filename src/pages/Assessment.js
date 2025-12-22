@@ -1,9 +1,9 @@
-import "./Assessment.css";
+import "./Pages.css";
 
 function Assessment() {
   return (
-    <div className="assessment-page">
-      <div className="assessment-content">
+    <div className="page-container">
+      <div className="page-content">
         <h2>Assessment Criteria</h2>
 
         <h3>Metrics</h3>

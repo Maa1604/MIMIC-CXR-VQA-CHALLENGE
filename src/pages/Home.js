@@ -1,28 +1,11 @@
 import ChestViewer from "../components/ChestViewer/ChestViewer";
+import "./Pages.css"
 
 function Home() {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        backgroundColor: "#fff",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center", // center horizontally
-      }}
-    >
+    <div className="page-container">
       <ChestViewer />
-
-      <div
-        style={{
-          maxWidth: "900px",
-          margin: "40px auto",
-          padding: "0 20px",
-          fontSize: "16px",
-          lineHeight: "1.7",
-          color: "#222",
-        }}
-      >
+      <div className="page-content">
         <p>
           <strong>The CXR-ORACLE Challenge</strong> introduces a new large-scale
           benchmark for medical VQA based on chest radiography. The challenge is

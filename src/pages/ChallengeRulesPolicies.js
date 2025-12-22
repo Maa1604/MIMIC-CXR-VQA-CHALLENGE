@@ -1,9 +1,9 @@
-import "./ChallengeRulesPolicies.css";
+import "./Pages.css";
 
 function ChallengeRulesPolicies() {
   return (
-    <div className="rules-page">
-      <div className="rules-content">
+    <div className="page-container">
+      <div className="page-content">
         <h2>Participation Policy</h2>
 
         <ul>

@@ -1,9 +1,9 @@
-import "./Participate.css";
+import "./Pages.css";
 
 function Participate() {
   return (
-    <div className="participate-page">
-      <div className="participate-content">
+    <div className="page-container">
+      <div className="page-content">
         <h2>How to Participate in the CXR-ORACLE 2025 Challenge</h2>
 
         <h3>1. Register</h3>

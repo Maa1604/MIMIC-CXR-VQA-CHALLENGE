@@ -1,9 +1,9 @@
-import "./TaskDescription.css";
+import "./Pages.css";
 
 function TaskDescription() {
   return (
-    <div className="task-page">
-      <div className="task-content">
+    <div className="page-container">
+      <div className="page-content">
         <h2>Background: Freehand US Reconstruction</h2>
 
         <p>

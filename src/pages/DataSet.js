@@ -1,9 +1,9 @@
-import "./DataSet.css";
+import "./Pages.css";
 
 function DataSet() {
   return (
-    <div className="dataset-page">
-      <div className="dataset-content">
+    <div className="page-container">
+      <div className="page-content">
         <h2>The Data set</h2>
 
         <p>

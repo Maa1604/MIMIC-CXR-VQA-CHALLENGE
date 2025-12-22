@@ -1,19 +1,9 @@
-import "./Registration.css";
+import "./Pages.css";
 
 function Registration() {
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#fff", padding: 24 }}>
-      <div
-        className="timeline-content"
-        style={{
-          maxWidth: "900px",
-          margin: "40px auto",
-          padding: "0 20px",
-          fontSize: "16px",
-          lineHeight: "1.7",
-          color: "#222",
-        }}
-      >
+    <div className="page-container">
+      <div className="page-content">
         <h2>Registration</h2>
 
         <p>
