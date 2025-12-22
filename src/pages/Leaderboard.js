@@ -1,8 +1,71 @@
+import "./Pages.css";
+import LeaderboardTable from "../components/Leaderboard/Leaderboard";
+
 function Leaderboard() {
+  const data = [
+    {
+      rank: 1,
+      teamName: "TeamName",
+      members:
+        "Member 1,\n" +
+        "Member 2,\n" +
+        "Member 3",
+      affiliation: "Example University",
+      score: 0.622,
+    },{
+      rank: 2,
+      teamName: "TeamName",
+      members:
+        "Member 1,\n" +
+        "Member 2,\n" +
+        "Member 3",
+      affiliation: "Example University",
+      score: 0.601,
+    }
+  ];
+
+  const columns = [
+    {
+      label: "Rank",
+      key: "rank",
+      className: "col-rank",
+    },
+    {
+      label: "Team Name",
+      key: "teamName",
+    },
+    {
+      label: "Team Members",
+      key: "members",
+      className: "multiline",
+    },
+    {
+      label: "Team Affiliation",
+      key: "affiliation",
+      className: "multiline",
+    },
+    {
+      label: "Final Score",
+      key: "score",
+      className: "col-score",
+      render: (value) => value.toFixed(3),
+    },
+  ];
+
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#fff", padding: 24 }}>
-      <h2>Leaderboard</h2>
-      <p>This page is currently empty.</p>
+    <div className="page-container">
+      <div className="page-content">
+        <LeaderboardTable
+          title="Main Challenge Track"
+          data={data}
+          columns={columns}
+        />
+        <div className="note">
+          <strong>NOTE:</strong> All scores (the larger the better) are 
+          normalised using the ranking method described in the <a href="/Assessment">assessment</a> page.
+        </div>
+      </div>
+      
     </div>
   );
 }
