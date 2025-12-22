@@ -1,7 +1,21 @@
 import ChestViewer from "../components/ChestViewer/ChestViewer";
+import Table from "../components/Table/Table";
 import "./Pages.css"
 
 function Home() {
+  const timelineColumns = ["Date", "Challenge Milestone"];
+
+  const timelineData = [
+    ["Apr. 01, 2025", "Challenge Websites Opening/Registration Opens"],
+    ["Apr. 28, 2025", "Training Data/Baseline Code Release"],
+    ["Jun. 23, 2025", "Validation Data/Submission Code Release"],
+    ["Jul. 07, 2025", "Submission Starts"],
+    ["Aug. 31, 2025", "Submission Closes"],
+    ["Sep. 01, 2025", "Winners Announcement"],
+    ["Sep. 27, 2025", "TUS-REC2025 Challenge Events at MICCAI 2025"],
+    ["Oct. 13, 2025", "Post-challenge submission deadline"],
+  ];
+
   return (
     <div className="page-container">
       <ChestViewer />
@@ -60,6 +74,12 @@ function Home() {
           reasoning and foster the development of practical, interpretable, and
           computationally efficient AI solutions for radiology.
         </p>
+        <h3>Timeline</h3>
+        <Table columns={timelineColumns} data={timelineData} />
+        <h3>Programme</h3>
+        <h3>The Task</h3>
+        <h3>Awards</h3>
+        <h3>Organizers</h3>
       </div>
     </div>
   );

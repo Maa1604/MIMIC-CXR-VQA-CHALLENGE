@@ -1,4 +1,5 @@
 import UpdatesTimeLine from "../components/UpdatesTimeLine/UpdatesTimeLine";
+import "./Pages.css"
 
 function LatestNews() {
   const updates = [
@@ -55,8 +56,7 @@ function LatestNews() {
   ];
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#fff", padding: 24 }}>
-      <h2>Latest News</h2>
+    <div className="page-container">
       <UpdatesTimeLine updates={updates} />
     </div>
   );
