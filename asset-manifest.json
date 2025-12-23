@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MIMIC-CXR-VQA-CHALLENGE/static/css/main.03e18b71.css",
-    "main.js": "/MIMIC-CXR-VQA-CHALLENGE/static/js/main.2a4fe2a5.js",
+    "main.js": "/MIMIC-CXR-VQA-CHALLENGE/static/js/main.0baf1e26.js",
     "static/js/453.2d96f0cf.chunk.js": "/MIMIC-CXR-VQA-CHALLENGE/static/js/453.2d96f0cf.chunk.js",
     "static/media/lung12.png": "/MIMIC-CXR-VQA-CHALLENGE/static/media/lung12.3981fa739b9f4b030e69.png",
     "static/media/FinalLabelDistribution.png": "/MIMIC-CXR-VQA-CHALLENGE/static/media/FinalLabelDistribution.aaca876c41af11f870d8.png",
@@ -11,11 +11,11 @@
     "static/media/logo3.png": "/MIMIC-CXR-VQA-CHALLENGE/static/media/logo3.7ad7e9c1b90158eb6769.png",
     "index.html": "/MIMIC-CXR-VQA-CHALLENGE/index.html",
     "main.03e18b71.css.map": "/MIMIC-CXR-VQA-CHALLENGE/static/css/main.03e18b71.css.map",
-    "main.2a4fe2a5.js.map": "/MIMIC-CXR-VQA-CHALLENGE/static/js/main.2a4fe2a5.js.map",
+    "main.0baf1e26.js.map": "/MIMIC-CXR-VQA-CHALLENGE/static/js/main.0baf1e26.js.map",
     "453.2d96f0cf.chunk.js.map": "/MIMIC-CXR-VQA-CHALLENGE/static/js/453.2d96f0cf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.03e18b71.css",
-    "static/js/main.2a4fe2a5.js"
+    "static/js/main.0baf1e26.js"
   ]
 }
