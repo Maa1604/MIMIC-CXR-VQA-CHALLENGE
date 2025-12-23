@@ -1,6 +1,6 @@
 import ChestViewer from "../components/ChestViewer/ChestViewer";
 import Table from "../components/Table/Table";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Pages.css"
 
 function Home() {
@@ -26,7 +26,7 @@ function Home() {
   ];
 
   return (
-    <div className="page-container" id="top">
+    <div className="page-container">
       <ChestViewer />
       <div className="page-content">
         <p>
@@ -100,15 +100,15 @@ function Home() {
           decision support, education, and large-scale dataset annotation.
         </p>
         <p>
-          For detailed information, please refer to <NavLink href="/TaskDescription">task description</NavLink>, 
-          <NavLink href="/Dataset"> dataset</NavLink>, <NavLink href="/Assessment">assessment</NavLink>, and <NavLink href="/Submission">submission process</NavLink>.
+          For detailed information, please refer to <Link to="/TaskDescription">task description</Link>, 
+          <Link to="/Dataset"> dataset</Link>, <Link to="/Assessment">assessment</Link>, and <Link to="/Submission">submission process</Link>.
         </p>
         <h3>Awards</h3>
         <p>
           The results from all participants will be made publicly available on leaderboard unless the submitted dockers
           incurred errors during the evaluation process. Teams are allowed to make multiple distinct submissions (but must 
           ensure they are not merely simple variations in hyperparameter values). The leaderboard will be accessible for 
-          public viewing <NavLink href="/Leaderboard">here</NavLink>.
+          public viewing <Link to="/Leaderboard">here</Link>.
           <ul>
             <li>The first-place and runner-up achievers will receive additional certificates.</li>
             <li>Participants who successfully participated the challenge will be awarded certificates of participation.</li>
@@ -126,7 +126,12 @@ function Home() {
         </p>
         <h3>Sponsors</h3>
         <p className="back-to-top">
-          <NavLink href="#top">Back to top ↑</NavLink>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="back-to-top-link"
+          >
+            Back to top ↑
+          </button>
         </p>
       </div>
     </div>

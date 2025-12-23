@@ -1,5 +1,6 @@
 import UpdatesTimeLine from "../components/UpdatesTimeLine/UpdatesTimeLine";
 import "./Pages.css"
+// import { Link } from "react-router-dom"; uncomment when used
 
 function LatestNews() {
   const updates = [
@@ -12,15 +13,15 @@ function LatestNews() {
     //       The TUS-REC2024 Challenge paper has been updated with a more
     //       comprehensive literature review and accompanying supplementary
     //       material. You can access the updated version here:{" "}
-    //       <a
-    //         href="https://doi.org/10.48550/arXiv.2506.21765"
+    //       <Link
+    //         to="https://doi.org/10.48550/arXiv.2506.21765"
     //         target="_blank"
     //         rel="noreferrer"
     //       >
     //         https://doi.org/
-    //       </a>{" "}
+    //       </Link>{" "}
     //       and the supplementary material here:{" "}
-    //       <a href="/supplementary.xlsx">supplementary.xlsx</a>.
+    //       <Link to="/supplementary.xlsx">supplementary.xlsx</Link>.
     //     </>
     //   ),
     // },
@@ -30,7 +31,7 @@ function LatestNews() {
     //   title: "Leaderboard Finalised & Joint Challenge Paper",
     //   content: (
     //     <>
-    //       The finalised <a href="/leaderboard">leaderboard</a> is now available.
+    //       The finalised <Link to="/leaderboard">leaderboard</Link> is now available.
     //       This challenge will remain open-ended, and we are planning to submit a
     //       challenge paper. Docker submissions made before 13 Oct 2025 will be
     //       considered for co-authorship in the challenge paper, based on
@@ -46,9 +47,9 @@ function LatestNews() {
     //     <>
     //       The TUS-REC2025 Challenge has entered the submission phase.
     //       Participants can now submit their Dockerized algorithms via this{" "}
-    //       <a href="/submission-form">form</a> by following the{" "}
-    //       <a href="/submission-guideline">submission guideline</a>. Additionally,
-    //       the <a href="/validation-dataset">validation dataset</a> has been
+    //       <Link to="/submission-form">form</Link> by following the{" "}
+    //       <Link to="/submission-guideline">submission guideline</Link>. Additionally,
+    //       the <Link to="/validation-dataset">validation dataset</Link> has been
     //       released for local evaluation.
     //     </>
     //   ),
@@ -76,11 +77,16 @@ function LatestNews() {
   ];
 
   return (
-    <div className="page-container" id="top">
+    <div className="page-container">
       <div className="page-content">
         <UpdatesTimeLine updates={updates} />
         <p className="back-to-top">
-            <a href="#top">Back to top ↑</a>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="back-to-top-link"
+          >
+            Back to top ↑
+          </button>
         </p>
       </div>
     </div>

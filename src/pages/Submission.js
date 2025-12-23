@@ -7,7 +7,12 @@ function Submission() {
         <h2>Submission</h2>
         <p>Details soon, close to challenge opening date.</p>
         <p className="back-to-top">
-          <a href="#top">Back to top ↑</a>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="back-to-top-link"
+          >
+            Back to top ↑
+          </button>
         </p>
       </div>
     </div>

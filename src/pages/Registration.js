@@ -1,4 +1,5 @@
 import "./Pages.css";
+import { Link } from "react-router-dom";
 
 function Registration() {
   return (
@@ -9,32 +10,37 @@ function Registration() {
         <p>
           Prior to participating the challenge, we kindly request all participants
           to familiarize themselves with our {" "}
-          <a href="/ChallengeRulesPolicies" target="_blank" rel="noopener noreferrer">
+          <Link to="/ChallengeRulesPolicies" target="_blank" rel="noopener noreferrer">
             participation and data usage policies, along with our publication policy
-          </a>.
+          </Link>.
         </p>
 
         <p>
           We ask participants to formally register by filling in this {" "}
-          <a
-            href="google.com"
+          <Link
+            to="google.com"
             class="disabled-link"
             aria-disabled="true"
             title="Coming soon"
           >
             LINK (coming soon)
-          </a>
+          </Link>
         </p>
 
         <p>
           After registering, you will receive the links to data and will be added
           to the participants mailing list <strong>(coming soon)</strong>. Please note that you
           may not be able to be added to this mailing list because of some restrictions
-          within your organisation. Please contact <a href="mailto:maasala@prhlt.upv.es">maasala@prhlt.upv.es </a>
+          within your organisation. Please contact <Link to="mailto:maasala@prhlt.upv.es">maasala@prhlt.upv.es </Link>
           if you encounter any problem during registration.
         </p>
         <p className="back-to-top">
-          <a href="#top">Back to top ↑</a>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="back-to-top-link"
+          >
+            Back to top ↑
+          </button>
         </p>
       </div>
     </div>

@@ -1,37 +1,38 @@
 import "./Pages.css";
+import { Link } from "react-router-dom";
 
 function Participate() {
   return (
-    <div className="page-container" id="top">
+    <div className="page-container">
       <div className="page-content">
         <h2>How to Participate in the CXR-ORACLE 2025 Challenge</h2>
 
-        <h3>1. <a href="/Registration">Register</a></h3>
+        <h3>1. <Link to="/Registration">Register</Link></h3>
         <ul>
           <li>
-            Read the <a href="/ChallengeRulesPolicies">Challenge Rules &amp; Policies</a>.
+            Read the <Link to="/ChallengeRulesPolicies">Challenge Rules &amp; Policies</Link>.
           </li>
           <li>
             Register using the following{" "}
-            <a
-              href="google.com"
+            <Link
+              to="google.com"
               className="disabled-link"
               aria-disabled="true"
               title="Coming soon"
             >
               LINK (coming soon)
-            </a>.
+            </Link>.
           </li>
         </ul>
 
-        <h3>2. Download <a href="/Dataset">dataset</a></h3>
+        <h3>2. Download <Link to="/Dataset">dataset</Link></h3>
         <p>
           We will send the links of data to you once we receive your registration
           information.
         </p>
         <ul>
-          <li><a href="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">Training data (coming soon)</a></li>
-          <li><a href="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">Validation data (coming soon)</a></li>
+          <li><Link to="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">Training data (coming soon)</Link></li>
+          <li><Link to="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">Validation data (coming soon)</Link></li>
         </ul>
 
         <h3>3. Develop your method</h3>
@@ -39,37 +40,42 @@ function Participate() {
           <li>
             Get started with the baselines:
             <ul>
-              <li><a href="https://github.com/LightVED-prhlt/BLIP-2-MultiView">BLIP-2 MultiView</a></li>
-              <li><a href="https://github.com/LightVED-prhlt/SwinVED-SCST">SwinVED-SCST</a></li>
+              <li><Link to="https://github.com/LightVED-prhlt/BLIP-2-MultiView">BLIP-2 MultiView</Link></li>
+              <li><Link to="https://github.com/LightVED-prhlt/SwinVED-SCST">SwinVED-SCST</Link></li>
             </ul>
           </li>
           <li>
-            Get details about <a href="/Assessment">assessment</a>.
+            Get details about <Link to="/Assessment">assessment</Link>.
           </li>
         </ul>
 
         <h3>4. Build Docker image and submit</h3>
         <ul>
-          <li><a href="/Submission">Submission guideline</a></li>
-          <li><a href="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">An example docker (coming soon)</a></li>
+          <li><Link to="/Submission">Submission guideline</Link></li>
+          <li><Link to="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">An example docker (coming soon)</Link></li>
         </ul>
 
         <h3>5. Relevant links</h3>
         <ul>
-          <li><a href="/">Homepage</a></li>
-          <li><a href="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">Challenge proposal (coming soon)</a></li>
-          <li><a href="/TaskDescription">Task description</a></li>
-          <li><a href="https://github.com/LightVED-prhlt/BLIP-2-MultiView">Baseline code 1: BLIP-2 MultiView</a></li>
-          <li><a href="https://github.com/LightVED-prhlt/SwinVED-SCST">Baseline code 2: SwinVED-SCST</a></li>
-          <li><a href="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">CXR-ORACLE Challenge paper (coming soon)</a></li>
+          <li><Link to="/">Homepage</Link></li>
+          <li><Link to="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">Challenge proposal (coming soon)</Link></li>
+          <li><Link to="/TaskDescription">Task description</Link></li>
+          <li><Link to="https://github.com/LightVED-prhlt/BLIP-2-MultiView">Baseline code 1: BLIP-2 MultiView</Link></li>
+          <li><Link to="https://github.com/LightVED-prhlt/SwinVED-SCST">Baseline code 2: SwinVED-SCST</Link></li>
+          <li><Link to="google.com" class="disabled-link" aria-disabled="true" title="Coming soon">CXR-ORACLE Challenge paper (coming soon)</Link></li>
           {/* <li>
             Additional info:{" "}
-            <a href="https://forms.gle/REPLACE_WITH_REAL_FORM">Paper 1</a>, <a href="https://forms.gle/REPLACE_WITH_REAL_FORM">Paper 2</a>,{" "}
-            <a href="https://forms.gle/REPLACE_WITH_REAL_FORM">Paper 3</a>, <a href="https://forms.gle/REPLACE_WITH_REAL_FORM">Paper 4</a>.
+            <Link to="https://forms.gle/REPLACE_WITH_REAL_FORM">Paper 1</Link>, <Link to="https://forms.gle/REPLACE_WITH_REAL_FORM">Paper 2</Link>,{" "}
+            <Link to="https://forms.gle/REPLACE_WITH_REAL_FORM">Paper 3</Link>, <Link to="https://forms.gle/REPLACE_WITH_REAL_FORM">Paper 4</Link>.
           </li> */}
         </ul>
         <p className="back-to-top">
-          <a href="#top">Back to top ↑</a>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="back-to-top-link"
+          >
+            Back to top ↑
+          </button>
         </p>
       </div>
     </div>

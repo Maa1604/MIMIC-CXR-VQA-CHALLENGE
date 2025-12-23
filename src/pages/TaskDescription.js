@@ -1,5 +1,6 @@
 import "./Pages.css";
 import DescriptionVQA from "../assets/DescriptionVQA.png";
+import { Link } from "react-router-dom";
 
 
 function TaskDescription() {
@@ -23,7 +24,14 @@ function TaskDescription() {
           In CXR VQA, the model receives one or more chest X-ray images—typically acquired in different
           views such as posteroanterior (PA), anteroposterior (AP), and lateral projections—together with
           a natural language question. The goal is to generate an accurate and clinically grounded answer
-          based on the visual evidence present in the images (see <a href="#fig-1">Fig. 1</a>). 
+          based on the visual evidence present in the images (see <span
+            className="inline-link"
+            onClick={() =>
+              document.getElementById("fig-1")?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            Fig. 1
+          </span>). 
           This formulation naturally extends beyond binary classification, supporting open-ended, yes/no, and 
           short descriptive answers.
         </p>
@@ -95,7 +103,7 @@ function TaskDescription() {
           specific multimodal fusion strategy employed. The model may support binary,
           categorical, or free-form answers depending on the question type. Further
           details regarding the evaluation protocol are provided in the
-          <a href="/Assessment"> Assessment</a> section.
+          <Link to="/Assessment"> Assessment</Link> section.
         </p>
 
         <p>
@@ -114,12 +122,17 @@ function TaskDescription() {
         <p>
           We provide two baseline algorithm in these repositories:
           <ul>
-            <li><a href="https://github.com/LightVED-prhlt/BLIP-2-MultiView">BLIP-2 MultiView</a></li>
-            <li><a href="https://github.com/LightVED-prhlt/SwinVED-SCST">SwinVED-SCST</a></li>
+            <li><Link to="https://github.com/LightVED-prhlt/BLIP-2-MultiView">BLIP-2 MultiView</Link></li>
+            <li><Link to="https://github.com/LightVED-prhlt/SwinVED-SCST">SwinVED-SCST</Link></li>
           </ul>
         </p>
         <p className="back-to-top">
-          <a href="#top">Back to top ↑</a>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="back-to-top-link"
+          >
+            Back to top ↑
+          </button>
         </p>
       </div>
     </div>

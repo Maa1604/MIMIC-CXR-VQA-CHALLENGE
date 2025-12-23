@@ -1,25 +1,25 @@
 import "./Pages.css";
 import FinalDistribution from "../assets/FinalLabelDistribution.png";
-
+import { Link } from "react-router-dom";
 
 function DataSet() {
   return (
-    <div className="page-container" id="top">
+    <div className="page-container">
       <div className="page-content">
         <h2>The Dataset</h2>
 
         <p>
           This dataset is a large-scale medical Visual Question Answering (VQA)
-          resource constructed from the <a href="https://www.nature.com/articles/s41597-019-0322-0">MIMIC-CXR database</a>. It contains over
+          resource constructed from the <Link to="https://www.nature.com/articles/s41597-019-0322-0">MIMIC-CXR database</Link>. It contains over
           <strong> 3.2 million question–answer (QA) pairs</strong> derived from
           chest X-ray studies, covering 15 clinically relevant categories such as
           cardiomegaly, pneumonia, pleural effusion, pneumothorax, and support
           devices.
         </p>
         <p>
-          Questions are generated using <a href="https://ojs.aaai.org/index.php/AAAI/article/view/3834">CheXpert labels</a> extracted from radiology
+          Questions are generated using <Link to="https://ojs.aaai.org/index.php/AAAI/article/view/3834">CheXpert labels</Link> extracted from radiology
           reports, while answers are automatically produced by a large language
-          model (<a href="https://arxiv.org/abs/2302.13971">LLaMA 3.1</a>) following a strictly evidence-based prompt. The model
+          model (<Link to="https://arxiv.org/abs/2302.13971">LLaMA 3.1</Link>) following a strictly evidence-based prompt. The model
           receives the radiology findings and study indication and is constrained
           to generate answers grounded exclusively in the visual content of the
           radiograph, avoiding assumptions, comparisons, or templated language.
@@ -51,7 +51,14 @@ function DataSet() {
         </div>
 
         <p>
-          As shown in <a href="#fig-1">Fig. 1</a>, this strategy prevents the
+          As shown in <span
+            className="inline-link"
+            onClick={() =>
+              document.getElementById("fig-1")?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            Fig. 1
+          </span>, this strategy prevents the
           over-representation of frequent positive findings and ensures uniform question
           coverage across conditions. The resulting distribution reduces dataset bias and
           encourages models to learn robust clinical reasoning rather than exploiting
@@ -115,12 +122,17 @@ function DataSet() {
 
         <p>
           The dataset does not redistribute images. All chest X-ray images must
-          be obtained directly from the <a href="https://physionet.org/content/mimic-cxr/2.1.0/">official MIMIC-CXR database</a> and linked
+          be obtained directly from the <Link to="https://physionet.org/content/mimic-cxr/2.1.0/">official MIMIC-CXR database</Link> and linked
           using the provided study and image identifiers. Users must comply with
           the original MIMIC-CXR data usage agreement to access the images.
         </p>
         <p className="back-to-top">
-          <a href="#top">Back to top ↑</a>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="back-to-top-link"
+          >
+            Back to top ↑
+          </button>
         </p>
       </div>
     </div>

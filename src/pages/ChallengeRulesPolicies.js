@@ -1,8 +1,9 @@
 import "./Pages.css";
+import { Link } from "react-router-dom";
 
 function ChallengeRulesPolicies() {
   return (
-    <div className="page-container" id="top">
+    <div className="page-container">
       <div className="page-content">
         <h2>Participation Policy</h2>
 
@@ -27,13 +28,13 @@ function ChallengeRulesPolicies() {
 
         <p>
           The data is provided under{" "}
-          <a
-            href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          <Link
+            to="https://creativecommons.org/licenses/by-nc-sa/4.0/"
             target="_blank"
             rel="noopener noreferrer"
           >
             CC BY NC SA
-          </a>{" "}
+          </Link>{" "}
           license. It is exclusively intended for research purposes, in
           compliance with the restrictions imposed by the original ethics
           approval and patient consent.
@@ -159,7 +160,7 @@ function ChallengeRulesPolicies() {
           Instances of abusive, harassing, or otherwise unacceptable behavior
           may be reported to the community leaders responsible for enforcement
           at{" "}
-          <a href="mailto:maasala@prhlt.upv.es">maasala@prhlt.upv.es</a>. All
+          <Link to="mailto:maasala@prhlt.upv.es">maasala@prhlt.upv.es</Link>. All
           complaints will be promptly and fairly reviewed and investigated.
         </p>
 
@@ -170,13 +171,18 @@ function ChallengeRulesPolicies() {
 
         <p className="footnote">
           This Code of Conduct has been adapted from the policy available{" "}
-          <a href="https://github.com/just-the-docs/just-the-docs/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">
+          <Link to="https://github.com/just-the-docs/just-the-docs/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer">
             here
-          </a>{" "}
+          </Link>{" "}
           for Just the Docs.
         </p>
         <p className="back-to-top">
-          <a href="#top">Back to top ↑</a>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="back-to-top-link"
+          >
+            Back to top ↑
+          </button>
         </p>
       </div>
     </div>
