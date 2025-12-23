@@ -12,14 +12,14 @@ function Participate() {
             Read the <a href="/ChallengeRulesPolicies">Challenge Rules &amp; Policies</a>.
           </li>
           <li>
-            Fill in the registration {" "}
+            Register using the following{" "}
             <a
               href="google.com"
-              class="disabled-link"
+              className="disabled-link"
               aria-disabled="true"
               title="Coming soon"
             >
-              form (coming soon)
+              LINK (coming soon)
             </a>.
           </li>
         </ul>

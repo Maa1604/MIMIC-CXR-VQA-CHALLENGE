@@ -26,6 +26,6 @@
 /* Mobile only */
 @media (max-width: 900px) {
   .page-content {
-    margin-top: 64px;
+    margin-top: 24px;
   }
 }

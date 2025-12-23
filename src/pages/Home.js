@@ -13,12 +13,12 @@ function Home() {
     ["Jul. 07, 2025", "Submission Starts"],
     ["Aug. 31, 2025", "Submission Closes"],
     ["Sep. 01, 2025", "Winners Announcement"],
-    ["Sep. 27, 2025", "TUS-REC2025 Challenge Events at MICCAI 2025"],
+    ["Sep. 27, 2025", "CXR-ORACLE Challenge Events at MICCAI 2025"],
     ["Oct. 13, 2025", "Post-challenge submission deadline"],
   ];
   
   const ProgrammeData = [
-    ["16:00-16:10", "Introduction to the TUS-REC2025 Challenge"],
+    ["16:00-16:10", "Introduction to the CXR-ORACLE Challenge"],
     ["16:10-17:00", "Presentations by competing teams"],
     ["17:00-17:05", "Results summary"],
     ["17:05-17:15", "Awards ceremony"],
