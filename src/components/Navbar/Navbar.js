@@ -33,12 +33,28 @@ function Navbar() {
   const handleClose = () => setOpen(false);
   const handleOpen = () => setOpen(true);
 
+  const handleScrollToTop = () => {
+    // Only force scroll if we are ALREADY on the home page.
+    // (If we are on another page, the route change triggers your ScrollToTop component automatically)
+    if (location.pathname === "/") {
+      // 1. Scroll the content div (primary target)
+      const contentDiv = document.querySelector(".page-content");
+      if (contentDiv) {
+        contentDiv.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      // 2. Scroll window as backup
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   const SidebarContent = (
     <div className="navbar-container">
       <Sidebar width="270px" showProfile={false}>
-        <Logo component={Link} to="/" img={logo}>
-          My App
-        </Logo>
+        <div onClick={handleScrollToTop} style={{ cursor: "pointer" }}>
+          <Logo component={Link} to="/" img={logo}>
+            My App
+          </Logo>
+        </div>
         <div className="logo-divider" />
         <Menu subHeading="">
           <MenuItem
@@ -143,7 +159,7 @@ function Navbar() {
           <IconButton onClick={handleOpen}>
             <MenuIcon />
           </IconButton>
-          <Link to="/" className="topbar-logo-wrapper">
+          <Link to="/" className="topbar-logo-wrapper" onClick={handleScrollToTop}>
             <img src={logoside} alt="logo" />
           </Link>
         </div>
