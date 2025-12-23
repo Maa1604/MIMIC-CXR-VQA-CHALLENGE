@@ -36,7 +36,7 @@ function Navbar() {
   const SidebarContent = (
     <div className="navbar-container">
       <Sidebar width="270px" showProfile={false}>
-        <Logo component={Link} href="/" img={logo}>
+        <Logo component={Link} to="/" img={logo}>
           My App
         </Logo>
         <div className="logo-divider" />
